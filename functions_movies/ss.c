@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alda-sil <alda-sil@student.42.rio>         +#+  +:+       +#+        */
+/*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 16:29:27 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/10 16:29:29 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:17:03 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push.h"
+#include "../push.h"
 
 void    ft_ss(t_list **stack_a, t_list **stack_b)
 {

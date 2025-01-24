@@ -1,4 +1,4 @@
-#include "push.h"
+#include "../push.h"
 
 void    ft_pb(t_list **stack_a, t_list **stack_b)
 {

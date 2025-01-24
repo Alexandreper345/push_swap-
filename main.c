@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:23 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/10 20:29:51 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:41:46 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main(int argc,char **argv)
     ft_printf("antes de entrar no RA\n");
     print_list(stack_a);
 
-    ft_ra(&stack_a);
+    ft_rb(&stack_a);
 
     ft_printf("\ndepois de entrar no RA\n");
     print_list(stack_a);

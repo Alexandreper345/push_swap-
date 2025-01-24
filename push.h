@@ -20,5 +20,6 @@ void    ft_ss(t_list **stack_a, t_list **stack_b);
 void    ft_pa(t_list **stack_a,t_list **stack_b);
 void    ft_pb(t_list **stack_a, t_list **stack_b);
 void    ft_ra(t_list **stack_a);
+void    ft_rb(t_list **stack_b);
 
 #endif

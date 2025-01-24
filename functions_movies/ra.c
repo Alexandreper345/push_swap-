@@ -1,4 +1,4 @@
-#include "push.h"
+#include "../push.h"
 
 void    ft_ra(t_list **stack_a)
 {
@@ -18,7 +18,6 @@ void    ft_ra(t_list **stack_a)
         first->next = NULL;
         last = ft_lstlast(*stack_a);
         last->next = first;
-
         write(1,"ra\n", 3);
     }
 

@@ -6,11 +6,11 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:18 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/10 15:52:43 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:16:59 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push.h"
+#include "../push.h"
 
 void    ft_sb(t_list **stack)
 {
