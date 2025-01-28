@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:31 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/23 21:45:06 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/28 20:02:04 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 t_list	*ft_lstnew(int content)
 {
-    t_list *new_node;
+	t_list	*new_node;
 
-    new_node = (t_list *)malloc(sizeof(t_list));
-    if (!new_node)
-        return (NULL);
-    new_node->number = content;
-    new_node->next = NULL;
-    
-    return(new_node);
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node->number = content;
+	new_node->next = NULL;
+	return (new_node);
 }

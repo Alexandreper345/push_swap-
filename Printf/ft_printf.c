@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:33:52 by alda-sil          #+#    #+#             */
-/*   Updated: 2024/10/21 16:36:20 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/28 19:43:20 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_printf(const char *s, ...)
 	va_list	list;
 	int		count;
 
-	if(!s)
+	if (!s)
 		return (-1);
 	count = 0;
 	va_start(list, s);
