@@ -16,6 +16,6 @@ void	ft_rb(t_list **stack_b)
 		first->next = NULL;
 		last = ft_lstlast(*stack_b);
 		last->next = first;
-		write(1, "rb", 2);
+		write(1, "rb\n", 3);
 	}
 }

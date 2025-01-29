@@ -11,6 +11,6 @@ void	ft_pb(t_list **stack_a, t_list **stack_b)
 		*stack_a = (*stack_a)->next;
 		swap->next = *stack_b;
 		*stack_b = swap;
-		write(1, "pb\n", 1);
+		write(1, "pb\n", 3);
 	}
 }

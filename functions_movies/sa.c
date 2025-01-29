@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:12 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/28 19:57:31 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:59:09 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	ft_sa(t_list **stack)
 		val1->next = val2->next;
 		val2->next = val1;
 		*stack = val2;
-		write(1, "sa\n", 2);
+		write(1, "sa\n", 3);
 	}
 }

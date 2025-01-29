@@ -17,6 +17,6 @@ void	ft_rrb(t_list **stack_b)
 		curr->next = *stack_b;
 		prev->next = NULL;
 		*stack_b = curr;
-		write(1, "rrb", 3);
+		write(1, "rrb\n", 4);
 	}
 }

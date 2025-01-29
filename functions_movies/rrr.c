@@ -26,6 +26,6 @@ void	ft_rrr(t_list **stack_a, t_list **stack_b)
 		prev_b->next = NULL;
 		*stack_a = curr_a;
 		*stack_b = curr_b;
-		write(1, "rrr", 3);
+		write(1, "rrr\n", 4);
 	}
 }
