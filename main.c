@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:23 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/28 19:45:49 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/28 20:22:18 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		stack_b = NULL;
 		while (i < argc)
 		{
-			ft_lstadd_back(&stack_a, ft_lstnew(atoi(argv[i])));
+			ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
 			i++;
 		}
 	}
