@@ -42,6 +42,26 @@ int	*array_of_list(t_list **static_a, int size)
 	return(array);
 }
 
+int	is_list_sorted(t_list **static_a, int size, int *array)
+{
+	t_list *current;
+	int	index;
+
+	index = 0;
+	current = *static_a;
+	while (current && index < size)
+	{
+		if (current->number != array[index])
+			return (0);
+		current = current->next;
+		index++;
+	}
+	return (1);
+
+
+}
+
+
 void	radix(t_list **static_a, t_list **static_b)
 {
 	int index_bit;
@@ -49,12 +69,19 @@ void	radix(t_list **static_a, t_list **static_b)
 	int index;
 	int	index_stack_b;
 	int	len_stack_b;
+	int *array;
+	int sorted;
 
 	len = ft_list_size(*static_a);
+	array = array_of_list(static_a,len);
 	index_bit = 0;
 	index_stack_b = 0;
-	while (index_bit < 3)
+	while (index_bit < 32)
 	{
+		sorted = is_list_sorted(static_a,len,array);
+		if (sorted)
+			break;
+
 		index = 0;
 		while (index < len)
 		{
@@ -105,32 +132,28 @@ void print_array_with_indices(int *array, int size)
     }
 }
 
-int main()
-{
+int main() {
     t_list *stack_a = NULL;
-    int *array;
-    int size;
+    t_list *stack_b = NULL;
 
-
-    // Preenche a lista encadeada com valores
+    // Adicionando elementos à stack A
     ft_lstadd_back(&stack_a, ft_lstnew(1));
     ft_lstadd_back(&stack_a, ft_lstnew(5));
     ft_lstadd_back(&stack_a, ft_lstnew(4));
     ft_lstadd_back(&stack_a, ft_lstnew(3));
-    // Verifique o conteúdo da lista antes
-    ft_printf("Stack A antes de criar o array:\n");
+
+    ft_printf("Stack A antes da operação:\n");
     print_list(stack_a);
+    ft_printf("Stack B antes da operação:\n");
+    print_list(stack_b);
 
-    size = ft_list_size(stack_a);
+    // Testando a função radix
+    radix(&stack_a, &stack_b);
 
-    // Converte a lista para array
-    array = array_of_list(&stack_a, size);
+    ft_printf("\nStack A após a operação:\n");
+    print_list(stack_a);
+    ft_printf("Stack B após a operação:\n");
+    print_list(stack_b);
 
-    // Exibe o array gerado (agora mostrando os valores e seus índices)
-    ft_printf("\nArray gerado a partir da lista (ordenado):\n");
-    print_array_with_indices(array, size);
-
-    // Libera o array
-    free(array);
     return 0;
 }
