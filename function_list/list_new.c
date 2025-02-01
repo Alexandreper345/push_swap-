@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:31 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/28 20:02:04 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/01/31 21:04:11 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ t_list	*ft_lstnew(int content)
 		return (NULL);
 	new_node->number = content;
 	new_node->next = NULL;
+	new_node->index = -1;
 	return (new_node);
 }

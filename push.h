@@ -7,6 +7,7 @@
 typedef struct s_list
 {
 	int				number;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 
@@ -26,5 +27,10 @@ void	ft_rrb(t_list **stack_b);
 void	ft_rrr(t_list **stack_a, t_list **stack_b);
 int		ft_atoi(const char *nptr);
 int		ft_list_size(t_list *static_a);
+void	ft_sort_lst(t_list *lst);
+int		is_list_sorted(t_list **static_a, int size, int *array);
+void	index_list(t_list **static_a);
+void	algorithm(t_list **static_a, t_list **static_b);
+void	radix(t_list **static_a, t_list **static_b);
 
 #endif
