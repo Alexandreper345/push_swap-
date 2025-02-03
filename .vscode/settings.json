@@ -1,17 +1,3 @@
 {
-    "C_Cpp.errorSquiggles": "disabled",
-    "files.associations": {
-        "array": "c",
-        "*.tcc": "c",
-        "concepts": "c",
-        "string": "c",
-        "unordered_map": "c",
-        "memory": "c",
-        "optional": "c",
-        "string_view": "c",
-        "ostream": "c",
-        "streambuf": "c",
-        "functional": "c",
-        "tuple": "c"
-    }
+    "C_Cpp.errorSquiggles": "disabled"
 }

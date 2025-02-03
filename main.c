@@ -6,40 +6,18 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:23 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/01/31 20:07:17 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:36:08 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push.h"
 
-/*
-int	main(int argc, char **argv)
-{
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		i;
-
-	if (argc < 2)
-		return (0);
-	else
-	{
-		i = 0;
-		stack_a = NULL;
-		stack_b = NULL;
-		while (i < argc)
-		{
-			ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
-			i++;
-		}
-	}
-}
-*/
 
 void print_list(t_list *stack)
 {
     while (stack)
     {
-        ft_printf("%d -> ", stack->number);
+        ft_printf("%d(%d) -> ", stack->number, stack->index);
         stack = stack->next;
     }
     ft_printf("NULL\n");
@@ -58,16 +36,33 @@ int main(int argc, char **argv) {
     t_list *stack_a = NULL;
     t_list *stack_b = NULL;
 	int	i;
+	t_list *current;
+	t_list *fixer;
 
-
-	i = 0;
+	i = 1;
     // Adicionando elementos à stack A
 	while (i < argc)
 	{
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
-
+	current = stack_a;
+	fixer = current;
+	// while (current && current->next)
+	while (fixer)
+	{
+		current = fixer;
+		while (current->next)
+		{
+			if (fixer->number == current->next->number)
+			{
+				ft_printf("%d %d", fixer->number, current->number);
+				return (0);
+			}
+			current = current->next;
+		}
+		fixer = fixer->next;
+	}
     ft_printf("Stack A antes da operação:\n");
     print_list(stack_a);
     ft_printf("Stack B antes da operação:\n");
@@ -75,6 +70,7 @@ int main(int argc, char **argv) {
 
     // Testando a função radix
     algorithm(&stack_a, &stack_b);
+
 
     ft_printf("\nStack A após a operação:\n");
     print_list(stack_a);

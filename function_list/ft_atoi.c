@@ -11,10 +11,10 @@ int	ft_atoi(const char *nptr)
 		i++;
 	while (nptr[i] == '-' || nptr[i] == '+')
 	{
-		if (nptr[i] == '-')
-			signal *= -1;
 		if (nptr[i + 1] == '-' || nptr[i + 1] == '+')
 			return (0);
+		if (nptr[i] == '-')
+			signal *= -1;
 		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
@@ -24,3 +24,9 @@ int	ft_atoi(const char *nptr)
 	}
 	return (signal * temp);
 }
+// #include <stdio.h>
+// int main(void)
+// {
+// 	printf("%d\n", ft_atoi("1"));
+// 	return (0);
+// }

@@ -27,10 +27,12 @@ void	ft_rrb(t_list **stack_b);
 void	ft_rrr(t_list **stack_a, t_list **stack_b);
 int		ft_atoi(const char *nptr);
 int		ft_list_size(t_list *static_a);
-void	ft_sort_lst(t_list *lst);
+void	ft_sort_int_tab(int *tab, int size);
 int		is_list_sorted(t_list **static_a, int size, int *array);
-void	index_list(t_list **static_a);
+int		*array_of_list(t_list **static_a, int size);
 void	algorithm(t_list **static_a, t_list **static_b);
 void	radix(t_list **static_a, t_list **static_b);
+int		is_list_sorted(t_list **static_a, int size, int *array);
+void	lst_index(int *array, t_list **static_a, int size);
 
 #endif
