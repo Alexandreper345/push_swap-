@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:23 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/02/03 19:36:08 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/02/03 20:52:19 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,18 @@ int main(int argc, char **argv) {
 	int	i;
 	t_list *current;
 	t_list *fixer;
+	char **str;
 
 	i = 1;
+	str = *argv[i];
     // Adicionando elementos à stack A
 	while (i < argc)
 	{
+		if (ft_isdigit(str[i]))
+		{
+			ft_putstr_fd("Error",2);
+			return (0);
+		}
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}

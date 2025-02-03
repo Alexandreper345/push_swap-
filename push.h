@@ -3,6 +3,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "Printf/ft_printf.h"
+#include <unistd.h>
 
 typedef struct s_list
 {
@@ -34,5 +35,8 @@ void	algorithm(t_list **static_a, t_list **static_b);
 void	radix(t_list **static_a, t_list **static_b);
 int		is_list_sorted(t_list **static_a, int size, int *array);
 void	lst_index(int *array, t_list **static_a, int size);
+int		ft_isdigit(int c);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putchar_fd(char c, int fd);
 
 #endif

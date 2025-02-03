@@ -24,9 +24,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (signal * temp);
 }
-// #include <stdio.h>
-// int main(void)
-// {
-// 	printf("%d\n", ft_atoi("1"));
-// 	return (0);
-// }
