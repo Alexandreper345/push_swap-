@@ -38,24 +38,28 @@ int main(int argc, char **argv) {
 	int	i;
 	t_list *current;
 	t_list *fixer;
-	char **str;
+	int	j;
 
+	j = 0;
 	i = 1;
-	str = *argv[i];
     // Adicionando elementos à stack A
 	while (i < argc)
 	{
-		if (ft_isdigit(str[i]))
+		j = 0;
+		while (argv[i][j])
 		{
-			ft_putstr_fd("Error",2);
-			return (0);
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				ft_putstr_fd("Error",2);
+				return (0);
+			}
+			j++;
 		}
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
 	current = stack_a;
 	fixer = current;
-	// while (current && current->next)
 	while (fixer)
 	{
 		current = fixer;
@@ -77,7 +81,6 @@ int main(int argc, char **argv) {
 
     // Testando a função radix
     algorithm(&stack_a, &stack_b);
-
 
     ft_printf("\nStack A após a operação:\n");
     print_list(stack_a);
