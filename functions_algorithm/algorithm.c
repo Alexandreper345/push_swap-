@@ -1,5 +1,29 @@
 #include "../push.h"
 
+void	handle_five(t_list **static_a, t_list **static_b)
+{
+	
+
+}
+
+void	handle_four(t_list **static_a, t_list **static_b)
+{
+
+}
+
+void	handle_three(t_list **static_a, int size)
+{
+	int index;
+
+	index = 0;
+	while (index <= size)
+	{
+		
+	}
+	
+
+}
+
 void	radix(t_list **static_a, t_list **static_b)
 {
 	int index_bit;
@@ -43,9 +67,18 @@ void	radix(t_list **static_a, t_list **static_b)
 void algorithm(t_list **static_a, t_list **static_b)
 {
 	int size;
+	int sorted;
 
+	
 	size = ft_list_size(*static_a);
 	if (size > 5)
-		radix(static_a, static_b);
-	//else if (size == 5)
+	2.	radix(static_a, static_b);
+	else if (size == 5)
+		handle_five(stactic_a, static_b);
+	else if (size == 4)
+		
+	else if (size == 3)
+
+	else if (size == 2)	
+		ft_sa(static_a, size);
 }

@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:23 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/02/03 20:52:19 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/02/05 00:07:05 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,6 @@ void print_list(t_list *stack)
     ft_printf("NULL\n");
 }
 
-
-void print_array_with_indices(int *array, int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        ft_printf("Index %d: %d\n", i, array[i]);
-    }
-}
-
 int main(int argc, char **argv) {
     t_list *stack_a = NULL;
     t_list *stack_b = NULL;
@@ -39,16 +30,18 @@ int main(int argc, char **argv) {
 	t_list *current;
 	t_list *fixer;
 	int	j;
-
+	
 	j = 0;
 	i = 1;
     // Adicionando elementos à stack A
 	while (i < argc)
 	{
 		j = 0;
+		if (argv[i][j] == '-' || argv[i][j] == '+')
+			j++;
 		while (argv[i][j])
 		{
-			if (argv[i][j] < '0' || argv[i][j] > '9')
+			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 			{
 				ft_putstr_fd("Error",2);
 				return (0);
