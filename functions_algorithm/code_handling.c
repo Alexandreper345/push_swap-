@@ -1,6 +1,5 @@
 #include "../push.h"
 
-//void ft_argv_is_number_repeat()
 int is_list_sorted(t_list **static_a, int size, int *array)
 {
     t_list *current;

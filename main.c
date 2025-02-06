@@ -6,7 +6,7 @@
 /*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 18:58:23 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/02/05 00:07:05 by alda-sil         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:20:20 by alda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int main(int argc, char **argv) {
 	t_list *current;
 	t_list *fixer;
 	int	j;
+	int size;
+	int sorted;
+	int *array;
 	
 	j = 0;
 	i = 1;
@@ -51,6 +54,16 @@ int main(int argc, char **argv) {
 		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
+
+	size = ft_list_size(stack_a);
+	array = array_of_list(&stack_a , size);
+	sorted = is_list_sorted(&stack_a,size,array);
+	if (sorted)
+	{
+		write(1, "\n",1);
+		return (0);
+	}
+	
 	current = stack_a;
 	fixer = current;
 	while (fixer)
@@ -82,6 +95,3 @@ int main(int argc, char **argv) {
 
     return 0;
 }
-
-
-
