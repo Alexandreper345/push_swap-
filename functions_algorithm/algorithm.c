@@ -34,24 +34,17 @@ void	handle_three(t_list **static_a)
 	}	
 }
 
-void	handle_five(t_list **static_a, t_list **static_b, int *array, int size)
+void	handle_five(t_list **static_a, t_list **static_b)
 {
-	int	index;
+	t_list current;
 
-	index = 0;
-	while (index < size)
+	current = *static_a;
+	while (current && current->next)
 	{
-		if (array[index] == 0 || array[index] == 1)
-			ft_pb(static_a, static_b);
-		index++;
+		if (current->number > current->next)
+			
 	}
-	handle_three(static_a);
-	index = 0;
-	while (index < 2)
-	{
-		ft_pa(static_a,static_b);
-		index++;
-	}
+	
 }
 
 void	radix(t_list **static_a, t_list **static_b)

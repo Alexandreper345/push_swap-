@@ -16,3 +16,38 @@ int is_list_sorted(t_list **static_a, int size, int *array)
     }
     return (1);
 }
+
+void ft_swap(int *a, int *b)
+{
+    int temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+
+}
+
+void   find_two_min(t_list **static_a, int *min1, int *min2)
+{
+    t_list *current;
+
+    current = *static_a;
+    *min1 = current->number;
+    *min2 = current->next->number;
+    if (*min1 > *min2)
+        ft_swap(min1, min2);
+    current = current->next->next;
+    while (current)
+    {
+        if (current->number < *min1)
+        {
+            *min2 = *min1;
+            *min1 = current->number;
+        }
+        else if (current->next < *min2)
+        {
+            *min2 = current->number;
+        }
+        current = current->next;
+    }
+}
