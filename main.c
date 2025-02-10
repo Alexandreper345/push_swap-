@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alda-sil <alda-sil@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/10 20:42:21 by alda-sil          #+#    #+#             */
+/*   Updated: 2025/02/10 20:52:05 by alda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push.h"
 
 void print_list(t_list *stack)
@@ -47,7 +59,7 @@ void	build_stack_from_args(t_list **stack, int argc, char **argv)
 
 	while (numbers[i])
 	{
-		num = ft_atoi(numbers[i]);
+		num = ft_atol(numbers[i]);
 		ft_lstadd_back(stack, ft_lstnew(num));
 		free(numbers[i]);
 		i++;	
@@ -70,14 +82,16 @@ int main(int argc, char **argv)
 	j = 0;
 	i = 1;
     // Adicionando elementos à stack A
+	
+	if (argc < 2 || argv[1][0] == '\0')
+		ft_putstr_fd("Error",2);
 	while (i < argc)
 	{
 		j = 0;
-		if (argv[i][j] == '-' || argv[i][j] == '+')
-			j++;
 		while (argv[i][j])
 		{
-	
+			if (argv[i][j] == '-' || argv[i][j] == '+')
+			j++;
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 			{
 				ft_putstr_fd("Error",2);
@@ -85,30 +99,25 @@ int main(int argc, char **argv)
 			}
 			while ((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == ' ')
 				j++;
-			if (argv[i][j] && !(argv[i][j] >= '0' && argv[i][j] <= '9') && argv[i][j] != '-' && argv[i][j] != '+')
-        	{
-         	   ft_putstr_fd("Error\n", 2);
-         	   return (1);
-        	}
 		}
 		i++;
 	}
-	
+
 	build_stack_from_args(&stack_a,argc,argv);
 	size = ft_list_size(stack_a);
 	array = array_of_list(&stack_a , size);
 	sorted = is_list_sorted(&stack_a,size,array);
-	if (sorted)
-	{
-		write(1, "\n",1);
-		return (0);
-	}
 	
 	current = stack_a;
 	fixer = current;
 	while (fixer)
 	{
 		current = fixer;
+		if (current->number > 2147483647)
+		{
+			ft_putstr_fd("Error",2);
+			return (0);
+		}
 		while (current->next)
 		{
 			if (fixer->number == current->next->number)
@@ -120,18 +129,28 @@ int main(int argc, char **argv)
 		}
 		fixer = fixer->next;
 	}
+
+	
+
+	if (sorted)
+	{
+		ft_putstr_fd("\n",1);
+		return (0);
+	}
+	/*
     ft_printf("Stack A antes da operação:\n");
     print_list(stack_a);
     ft_printf("Stack B antes da operação:\n");
     print_list(stack_b);
-
+	*/
     // Testando a função radix
     algorithm(&stack_a, &stack_b);
 
+	/*
     ft_printf("\nStack A após a operação:\n");
     print_list(stack_a);
     ft_printf("Stack B após a operação:\n");
     print_list(stack_b);
-
+	*/
     return 0;
 }

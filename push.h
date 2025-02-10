@@ -7,7 +7,7 @@
 
 typedef struct s_list
 {
-	int				number;
+	long				number;
 	int				index;
 	struct s_list	*next;
 }	t_list;
@@ -44,6 +44,7 @@ size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
+long  int	ft_atol(const char *nptr); 
 
 
 #endif
