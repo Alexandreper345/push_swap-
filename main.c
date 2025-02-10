@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: alda-sil <alda-sil@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 18:58:23 by alda-sil          #+#    #+#             */
-/*   Updated: 2025/02/05 20:20:20 by alda-sil         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push.h"
-
 
 void print_list(t_list *stack)
 {
@@ -23,7 +10,53 @@ void print_list(t_list *stack)
     ft_printf("NULL\n");
 }
 
-int main(int argc, char **argv) {
+char *ft_strjoin_with_space(int argc, char **argv)
+{
+	char *joined;
+	char *temp;
+	int	i;
+
+	i = 1;
+	joined = ft_strdup("");
+	while (i < argc)
+	{
+		temp = joined;
+		joined = ft_strjoin(joined, argv[i]);
+		if (i + 1 < argc)
+		{
+			temp = joined;
+			joined = ft_strjoin(joined, " ");
+			free(temp);
+		}
+		i++;
+	}
+	return (joined);
+}
+
+void	build_stack_from_args(t_list **stack, int argc, char **argv)
+{
+	char *joined_args;
+	char **numbers;
+	int i;
+	int num;
+
+	i = 0;
+	joined_args = ft_strjoin_with_space(argc, argv);
+	numbers = ft_split(joined_args, ' ');
+	free(joined_args);
+
+	while (numbers[i])
+	{
+		num = ft_atoi(numbers[i]);
+		ft_lstadd_back(stack, ft_lstnew(num));
+		free(numbers[i]);
+		i++;	
+	}
+	free(numbers);
+}
+
+int main(int argc, char **argv)
+{
     t_list *stack_a = NULL;
     t_list *stack_b = NULL;
 	int	i;
@@ -33,7 +66,7 @@ int main(int argc, char **argv) {
 	int size;
 	int sorted;
 	int *array;
-	
+
 	j = 0;
 	i = 1;
     // Adicionando elementos à stack A
@@ -44,17 +77,24 @@ int main(int argc, char **argv) {
 			j++;
 		while (argv[i][j])
 		{
+	
 			if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 			{
 				ft_putstr_fd("Error",2);
-				return (0);
+				return (1);
 			}
-			j++;
+			while ((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == ' ')
+				j++;
+			if (argv[i][j] && !(argv[i][j] >= '0' && argv[i][j] <= '9') && argv[i][j] != '-' && argv[i][j] != '+')
+        	{
+         	   ft_putstr_fd("Error\n", 2);
+         	   return (1);
+        	}
 		}
-		ft_lstadd_back(&stack_a, ft_lstnew(ft_atoi(argv[i])));
 		i++;
 	}
-
+	
+	build_stack_from_args(&stack_a,argc,argv);
 	size = ft_list_size(stack_a);
 	array = array_of_list(&stack_a , size);
 	sorted = is_list_sorted(&stack_a,size,array);
@@ -73,7 +113,7 @@ int main(int argc, char **argv) {
 		{
 			if (fixer->number == current->next->number)
 			{
-				ft_printf("%d %d", fixer->number, current->number);
+                ft_putstr_fd("Error",2);
 				return (0);
 			}
 			current = current->next;

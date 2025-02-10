@@ -38,5 +38,12 @@ void	lst_index(int *array, t_list **static_a, int size);
 int		ft_isdigit(int c);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
+void   find_two_min(t_list **static_a, int *min1, int *min2);
+void   find_un_min(t_list **static_a, int *min1);
+size_t	ft_strlen(const char *s);
+char	**ft_split(char const *s, char c);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s);
+
 
 #endif

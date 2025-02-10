@@ -44,10 +44,27 @@ void   find_two_min(t_list **static_a, int *min1, int *min2)
             *min2 = *min1;
             *min1 = current->number;
         }
-        else if (current->next < *min2)
+        else if (current->number < *min2)
         {
             *min2 = current->number;
         }
+        current = current->next;
+    }
+}
+
+
+void   find_un_min(t_list **static_a, int *min1)
+{
+    t_list *current;
+
+    current = *static_a;
+    *min1 = current->number;
+
+    current = current->next;
+    while (current)
+    {
+        if (current->number < *min1)
+            *min1 = current->number;
         current = current->next;
     }
 }

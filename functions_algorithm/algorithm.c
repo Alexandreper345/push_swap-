@@ -1,11 +1,5 @@
 #include "../push.h"
 
-/*
-void	handle_four(t_list **static_a, t_list **static_b)
-{
-
-}
-*/
 void	handle_three(t_list **static_a)
 {
 	int val1;
@@ -34,17 +28,48 @@ void	handle_three(t_list **static_a)
 	}	
 }
 
+void	handle_four(t_list **static_a, t_list **static_b)
+{
+	int min1;
+	t_list *current;
+
+	min1 = 0;
+	current = *static_a;
+	find_un_min(static_a, &min1);
+	while ((*static_a)->number != min1)
+		ft_ra(static_a);
+	ft_pb(static_a, static_b);
+	handle_three(static_a);
+	ft_pa(static_a, static_b);
+}
+
 void	handle_five(t_list **static_a, t_list **static_b)
 {
-	t_list current;
+	int	min1;
+	int min2;
+	t_list *current;
 
+
+	min1 = 0;
+	min2 = 0;
 	current = *static_a;
-	while (current && current->next)
+	find_two_min(static_a,&min1,&min2);
+	while ((*static_a)->number != min1)	
+		ft_ra(static_a);
+	ft_pb(static_a,static_b);
+	current = *static_a;
+	while (current)
 	{
-		if (current->number > current->next)
-			
+		if(current->number == min2)
+			break;
+		current = current->next;
 	}
-	
+	while ((*static_a)->number != min2)
+		ft_ra(static_a);
+	ft_pb(static_a, static_b);
+	handle_three(static_a);
+	ft_pa(static_a,static_b);
+	ft_pa(static_a,static_b);
 }
 
 void	radix(t_list **static_a, t_list **static_b)
@@ -98,9 +123,9 @@ void algorithm(t_list **static_a, t_list **static_b)
 		radix(static_a, static_b);
 	
 	else if (size == 5)
-		handle_five(static_a, static_b,array, size);
-	//else if (size == 4)
-		
+		handle_five(static_a, static_b);
+	else if (size == 4)
+		handle_four(static_a, static_b);	
 	else if (size == 3)
 		handle_three(static_a);
 	else if (size == 2)	
